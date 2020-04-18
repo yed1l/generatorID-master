@@ -1,0 +1,30 @@
+@{
+    ViewData["Title"] = "Search";
+}
+@using generatorID
+
+<form method="post">
+    <label>ID:</label><br />
+    <input type="text" name="student_id" /><br /><br />
+    <input type="submit" value="searching" />
+</form>
+<br/>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Date of Birth</th>
+        <th>Group</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var std in Database.shared.students)
+    {
+        <tr>
+            <td>@std.FullName</td>
+            <td>@std.DOB</td>
+            <td>@std.Group</td>
+        </tr>
+    }
+    </tbody>
+</table>
